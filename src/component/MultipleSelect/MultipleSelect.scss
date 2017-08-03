@@ -34,6 +34,7 @@ $dotted-line: grey 1px dotted;
     background: white;
     z-index: 1000;
     border: 1px solid #bbbbbb;
+    display: none;
     ul {
       padding-left: 0;
       margin: 0;
@@ -63,5 +64,12 @@ $dotted-line: grey 1px dotted;
         }
       }
     }
+  }
+
+  .show {
+    display: block;
+  }
+  .hide {
+    display: none;
   }
 }

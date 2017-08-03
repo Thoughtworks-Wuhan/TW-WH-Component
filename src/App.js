@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Alert from './component/Alert/index'
-import AdvancedSearch from './component/AdvanceSearch/AdvancedSearch';
 import MultipleSelect from './component/MultipleSelect/MultipleSelect';
 
 class App extends Component {
