@@ -22,10 +22,15 @@ const config = {
                 use: 'babel-loader'
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                    'file-loader'
-                ]
+                test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/',
+                        publicPath: '../'
+                    }
+                }]
             },
             {
                 test: /\.scss$/,
@@ -46,10 +51,15 @@ const config = {
                 ]
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    'file-loader'
-                ]
+                test: /\.(png|jpg|gif)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'images/',
+                        publicPath: '../'
+                    }
+                }]
             }
         ]
     },
