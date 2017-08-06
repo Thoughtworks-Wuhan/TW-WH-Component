@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
 import Alert from './component/Alert/index'
 import MultipleSelect from './component/MultipleSelect/MultipleSelect';
+import MultipleSelectUseRedux from './component/MultipleSelect/MultipleSelectUseRedux';
+import { GetItems } from './redux/module/action';
 
 class App extends Component {
 
@@ -14,7 +17,9 @@ class App extends Component {
     }
 
     btnClick = (e) => {
-        console.log(e);
+        const items = ['redux-item1', 'redux-item2', 'redux-item3', 'redux-item4', 'redux-item5',];
+        console.log(items);
+        this.props.GetItems(items);
     };
 
     render() {
@@ -32,10 +37,17 @@ class App extends Component {
                 <div className="multiple-select">
                     <MultipleSelect items={['item1', 'item2', 'item3', 'item4', 'item5']} placeholder="please select"/>
                 </div>
+                <div className="multiple-select" style={{ marginTop: '5em' }}>
+                    <MultipleSelectUseRedux />
+                </div>
                 {/*<AdvancedSearch />*/}
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return Object.assign({ items: state.data });
+};
+
+export default connect(mapStateToProps, { GetItems })(App);
