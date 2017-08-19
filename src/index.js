@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router'
-import { ConnectedRouter } from 'react-router-redux'
 import './index.css';
 import { store, history } from './redux/store/Store';
 import App from './App';
