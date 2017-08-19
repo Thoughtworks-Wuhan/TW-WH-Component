@@ -17,16 +17,11 @@ class MultipleSelect extends Component {
         this.setState({ switch: false });
     };
 
-    componentDidMount() {
-        // document.body.addEventListener('click', this.hide, false);
-    }
-
     toggle = () => {
         this.setState({ switch: !this.state.switch });
     };
 
     addItem = (e, item) => {
-        // e.nativeEvent.stopPropagation();
         const checked = e.target.checked;
         let items = this.state.items;
         if(checked) {

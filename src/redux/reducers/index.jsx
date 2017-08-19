@@ -5,4 +5,4 @@ const data = combineReducers({
     item: itemReducer
 });
 
-export default { data };
+export default data;

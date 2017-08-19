@@ -2,13 +2,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
+const env = 'product.js';
 const config = {
+    resolve: {
+        extensions: ['.js', '.jsx', '.json'],
+        alias: {
+            ConstantConfig: path.resolve(__dirname, (`env/${env}`)),
+        }
+    },
     entry: {
         main: './src/index.js',
-        vendor: ['react', 'react-dom']
-    },
-    resolve: {
-        extensions: ['.js', '.jsx', '.json']
+        vendor: ['react', 'react-dom', 'redux', 'react-redux', 'react-router-redux', 'react-router', 'react-router-dom'],
+        'constant-config': ['ConstantConfig']
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -65,7 +70,9 @@ const config = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
+            names: ['vendor', 'ConstantConfig'],
+            minChunks: Infinity,
+            filename: '[name].js'
         }),
         new webpack.optimize.UglifyJsPlugin(),
         new HtmlWebpackPlugin({ template: './public/index.html' })

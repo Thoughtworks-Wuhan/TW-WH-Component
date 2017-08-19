@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
+import service from './Service';
 import { GetItems } from '../../redux/module/action';
 import scss from './MultipleSelect.css'
 const cx = classNames.bind(scss);
@@ -13,12 +14,19 @@ class MultipleSelectUseRedux extends Component {
             placeholder: this.props.placeholder,
             items: []
         };
-        this.initItems();
     }
 
-    initItems = () => {
-        const items = ['redux-item1', 'redux-item2', 'redux-item3', 'redux-item4', 'redux-item5',];
-        this.props.GetItems(items);
+    componentDidMount() {
+        this.getItems();
+    }
+
+    getItems = () => {
+        service.getItems().then(items => {
+            // this.setState({items: items});
+            this.props.GetItems(items);
+        }).catch(error => {
+            console.error(error);
+        });
     };
 
     hide = () => {
@@ -30,7 +38,6 @@ class MultipleSelectUseRedux extends Component {
     };
 
     addItem = (e, item) => {
-        // e.nativeEvent.stopPropagation();
         const checked = e.target.checked;
         let items = this.state.items;
         if (checked) {
@@ -82,7 +89,6 @@ MultipleSelectUseRedux.defaultProps = {
 
 const mapStateToProps = (state) => {
     const items = state.data.item;
-    console.log(items);
     return Object.assign({ items });
 };
 

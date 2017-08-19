@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import Alert from './component/Alert/index'
-import MultipleSelect from './component/MultipleSelect/MultipleSelect';
-import MultipleSelectUseRedux from './component/MultipleSelect/MultipleSelectUseRedux';
+import MultipleSelect from './component/MultipleSelect/MultipleSelect'
 import { GetItems } from './redux/module/action';
 
 class App extends Component {
@@ -18,7 +18,6 @@ class App extends Component {
 
     btnClick = (e) => {
         const items = ['redux-item1', 'redux-item2', 'redux-item3', 'redux-item4', 'redux-item5',];
-        console.log(items);
         this.props.GetItems(items);
     };
 
@@ -33,14 +32,16 @@ class App extends Component {
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
                 <input type="button" value={this.state.btnName} onClick={this.btnClick}/>
+                <Link to="/multipleSelect">
+                    <h2>go to multiple-select page</h2>
+                </Link>
                 <Alert name="Hello"/>
                 <div className="multiple-select">
                     <MultipleSelect items={['item1', 'item2', 'item3', 'item4', 'item5']} placeholder="please select"/>
                 </div>
-                <div className="multiple-select" style={{ marginTop: '5em' }}>
+                {/*<div className="multiple-select" style={{ marginTop: '5em' }}>
                     <MultipleSelectUseRedux />
-                </div>
-                {/*<AdvancedSearch />*/}
+                </div>*/}
             </div>
         );
     }
