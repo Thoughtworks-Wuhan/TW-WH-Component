@@ -4,7 +4,7 @@ Frontend for Publish Management, A React.js and Redux Project.
 
 ## Pre-requisite
 ```
-- 本地调试需要 node 6.10.0: 下载地址 http://nodejs.cn/,
+- 本地调试需要 node 6.10.0: 下载地址 http://nodejs.cn/
 - 
 ```
 
@@ -17,3 +17,10 @@ yarn install
 yarn build
 # packaging
 yarn dev
+
+
+## test(jest enzyme)
+yarn test
+
+## generate test coverage
+yarn test -- --coverage
