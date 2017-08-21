@@ -5,11 +5,11 @@ const cx = classNames.bind(scss);
 
 class MultipleSelect extends Component {
     constructor(props) {
-        super(props);
+    super(props);
         this.state = {
             switch: false,
             placeholder: this.props.placeholder,
-            items: []
+                items: []
         };
     }
 
@@ -18,6 +18,8 @@ class MultipleSelect extends Component {
     };
 
     toggle = () => {
+            const s = "ab";
+            console.log(s);
         this.setState({ switch: !this.state.switch });
     };
 
@@ -29,7 +31,7 @@ class MultipleSelect extends Component {
         } else {
             items = items.filter((data) => item !== data);
         }
-        var placeholder = items.join(',');
+        const placeholder = items.join(',');
         this.setState({items, placeholder});
     };
 

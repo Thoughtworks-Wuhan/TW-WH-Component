@@ -9,7 +9,7 @@ const cx = classNames.bind(scss);
 class MultipleSelectUseRedux extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+                this.state = {
             switch: false,
             placeholder: this.props.placeholder,
             items: []

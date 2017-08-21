@@ -24,7 +24,10 @@ const config = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: [
+                    'babel-loader',
+                    'eslint-loader',
+                ]
             },
             {
                 test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
@@ -40,12 +43,12 @@ const config = {
             {
                 test: /\.scss$/,
                 use: [{
-                    loader: "style-loader"
+                    loader: 'style-loader'
                 }, {
-                    loader: "css-loader",
+                    loader: 'css-loader',
                     options: { modules: true, localIdentName: '[name]__[local]--[hash:base64:5]' }
                 }, {
-                    loader: "sass-loader"
+                    loader: 'sass-loader'
                 }]
             },
             {
@@ -78,9 +81,9 @@ const config = {
         new HtmlWebpackPlugin({ template: './public/index.html' })
     ],
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
+        contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        host: "0.0.0.0",
+        host: '0.0.0.0',
         port: 9000,
         hot: true,
         historyApiFallback: true

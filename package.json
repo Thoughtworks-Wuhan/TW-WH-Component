@@ -24,6 +24,7 @@
     "start": "react-scripts start",
     "build": "webpack --display-error-details",
     "test": "react-scripts test --env=jsdom",
+    "lint": "eslint . --max-warnings 0",
     "chunk": "webpack --display-chunks --display-modules",
     "eject": "react-scripts eject"
   },
@@ -38,6 +39,10 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.28.5",
     "enzyme": "^2.9.1",
+    "eslint": "^4.5.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.2.1",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^20.0.4",
@@ -49,7 +54,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "jest": {
-    "collectCoverageFrom" : [
+    "collectCoverageFrom": [
       "**/*.{js,jsx}",
       "!**/coverage/**",
       "!**/dist/**",
