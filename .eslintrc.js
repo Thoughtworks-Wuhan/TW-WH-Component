@@ -3,6 +3,8 @@ module.exports = {
         "browser": true,
         "es6": true
     },
+    "parser": "babel-eslint",
+    "extends": "airbnb",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -12,7 +14,8 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "jsx-a11y"
+        "jsx-a11y",
+        "import"
     ],
     "rules": {
         "indent": [
@@ -31,13 +34,25 @@ module.exports = {
             "error",
             "always"
         ],
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error",
-        "jsx-a11y/rule-name": 2
-    },
-    "extends": [
-        "plugin:jsx-a11y/recommended",
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ]
+        "max-len": [
+            "error",
+            150
+        ],
+        "react/jsx-indent": [
+            "error",
+            4
+        ],
+        "react/jsx-filename-extension": [
+            "error",
+            {
+                "extensions": [".js", ".jsx"]
+            }
+        ],
+        "react/jsx-indent-props": [
+            "error",
+            4
+        ],
+        "jsx-a11y/href-no-hash": "off",
+        "react/no-array-index-key": "off"
+    }
 };

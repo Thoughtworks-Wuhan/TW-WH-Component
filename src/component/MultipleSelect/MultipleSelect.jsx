@@ -1,15 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import classNames from 'classnames/bind';
-import scss from './MultipleSelect.css'
+import scss from './MultipleSelect.css';
+
 const cx = classNames.bind(scss);
 
 class MultipleSelect extends Component {
     constructor(props) {
-    super(props);
+        super(props);
         this.state = {
             switch: false,
             placeholder: this.props.placeholder,
-                items: []
+            items: [],
         };
     }
 
@@ -18,21 +19,19 @@ class MultipleSelect extends Component {
     };
 
     toggle = () => {
-            const s = "ab";
-            console.log(s);
         this.setState({ switch: !this.state.switch });
     };
 
     addItem = (e, item) => {
         const checked = e.target.checked;
         let items = this.state.items;
-        if(checked) {
+        if (checked) {
             items.push(item);
         } else {
-            items = items.filter((data) => item !== data);
+            items = items.filter(data => item !== data);
         }
         const placeholder = items.join(',');
-        this.setState({items, placeholder});
+        this.setState({ items, placeholder });
     };
 
     render() {
@@ -44,17 +43,14 @@ class MultipleSelect extends Component {
                 <div className={cx('multiple-checkbox-dropbox', this.state.switch ? 'show' : 'hide')}>
                     <ul>
                         {
-                            this.props.items.map((item, index) => {
-                                return (
-                                    <li key={`key-${index}`}>
-                                        <label htmlFor={`item-${index}`}>
-                                            <input type="checkbox" className="item-option" onClick={e => this.addItem(e, item)}
-                                                   id={`item-${index}`}/>
-                                            <span>{item}</span>
-                                        </label>
-                                    </li>
-                                )
-                            })
+                            this.props.items.map((item, index) => (
+                                <li key={`key-${index}`}>
+                                    <label htmlFor={`item-${index}`}>
+                                        <input type="checkbox" className="item-option" onClick={e => this.addItem(e, item)} id={`item-${index}`} />
+                                        <span>{item}</span>
+                                    </label>
+                                </li>
+                            ))
                         }
                     </ul>
                 </div>
@@ -64,11 +60,13 @@ class MultipleSelect extends Component {
 }
 
 MultipleSelect.propTypes = {
-    placeholder: React.PropTypes.string
+    placeholder: React.PropTypes.string,
+    items: React.PropTypes.arrayOf.isRequired,
 };
 
 MultipleSelect.defaultProps = {
-    placeholder: 'please enter to search...'
+    placeholder: 'please enter to search...',
+    items: [],
 };
 
 export default MultipleSelect;

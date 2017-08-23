@@ -1,7 +1,7 @@
 const ITEMS = 'ITEMS';
 const GetItems = value => ({
     type: ITEMS,
-    value
+    value,
 });
 
-export {ITEMS, GetItems};
+export { ITEMS, GetItems };

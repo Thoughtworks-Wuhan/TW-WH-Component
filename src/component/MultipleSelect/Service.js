@@ -9,6 +9,6 @@ const service = {
         throw result;
     }).catch((error) => {
         throw error;
-    })
+    }),
 };
 export default service;

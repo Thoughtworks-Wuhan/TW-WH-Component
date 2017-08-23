@@ -19,11 +19,11 @@ export default class Link extends React.Component {
     }
 
     _onMouseEnter() {
-        this.setState({class: STATUS.HOVERED});
+        this.setState({ class: STATUS.HOVERED });
     }
 
     _onMouseLeave() {
-        this.setState({class: STATUS.NORMAL});
+        this.setState({ class: STATUS.NORMAL });
     }
 
     render() {
@@ -31,11 +31,10 @@ export default class Link extends React.Component {
             <a
                 className={this.state.class}
                 href={this.props.page || '#'}
-                onMouseEnter={this._onMouseEnter}
-                onMouseLeave={this._onMouseLeave}>
+                onMouseEnter={ this._onMouseEnter }
+                onMouseLeave={ this._onMouseLeave }>
                 `{this.props.children} jest test`
             </a>
         );
     }
-
 }
